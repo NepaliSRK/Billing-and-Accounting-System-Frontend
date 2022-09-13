@@ -1,10 +1,24 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const collectData = () => {
+  const navigate = useNavigate();
+  const collectData = async () => {
     console.log(email, password);
+    let result = await fetch("http://localhost:5000/auth/signup", {
+      method: "post",
+      body: JSON.stringify({ email, password }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    result = await result.json();
+    console.log(result);
+    if (result) {
+      navigate("/login");
+    }
   };
 
   return (
