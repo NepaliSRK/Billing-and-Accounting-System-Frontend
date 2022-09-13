@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const handleLogin = async () => {
+  const collectData = async () => {
     console.log(email, password);
-    let result = await fetch("http://localhost:5000/auth/login", {
+    let result = await fetch("http://localhost:5000/auth/signup", {
       method: "post",
       body: JSON.stringify({ email, password }),
       headers: {
@@ -17,16 +17,14 @@ const Login = () => {
     result = await result.json();
     console.log(result);
     if (result) {
-      navigate("/home");
-    } else {
-      alert("user not found");
+      navigate("/login");
     }
   };
 
   return (
     <>
       <div className="inputbox">
-        <h1>Login</h1>
+        <h1>Register</h1>
         <input
           className="inputbox"
           type="text"
@@ -44,12 +42,12 @@ const Login = () => {
           placeholder="Password"
         ></input>
         <br></br>
-        <button onClick={handleLogin} className="inputbox" type="button">
-          Login
+        <button onClick={collectData} className="inputbox" type="button">
+          SignUp
         </button>
       </div>
     </>
   );
 };
 
-export default Login;
+export default SignUp;

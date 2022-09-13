@@ -3,6 +3,10 @@
   padding: 10px;
 }
 
+.inputbox{
+  margin:5px;
+}
+
 #root {
   max-width: 1280px;
   margin: auto;
