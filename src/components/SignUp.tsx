@@ -28,7 +28,7 @@ const SignUp = () => {
           placeholder="Password"
         ></input>
         <br></br>
-        <button onClick={collectData} className="appButton" type="button">
+        <button onClick={collectData} className="inputbox" type="button">
           SignUp
         </button>
       </div>
