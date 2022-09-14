@@ -7,7 +7,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const collectData = async () => {
     console.log(email, password);
-    let result = await fetch("http://localhost:5000/auth/signup", {
+    let result = await fetch("http://localhost:3000/auth/signup", {
       method: "post",
       body: JSON.stringify({ email, password }),
       headers: {

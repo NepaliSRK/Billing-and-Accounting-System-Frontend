@@ -7,7 +7,7 @@ const Login = () => {
   const navigate = useNavigate();
   const handleLogin = async () => {
     console.log(email, password);
-    let result = await fetch("http://localhost:5000/auth/login", {
+    let result = await fetch("http://localhost:3000/auth/login", {
       method: "post",
       body: JSON.stringify({ email, password }),
       headers: {
@@ -34,7 +34,6 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
         ></input>
-        <br></br>
 
         <input
           className="inputbox"
@@ -43,7 +42,6 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         ></input>
-        <br></br>
         <button onClick={handleLogin} className="inputbox" type="button">
           Login
         </button>

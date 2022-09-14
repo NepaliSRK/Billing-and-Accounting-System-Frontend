@@ -3,10 +3,14 @@
   padding: 10px;
 }
 
-.inputbox{
+.inputbox {
   margin:5px;
+  display: block;
 }
 
+.product{
+  margin: 5px;
+}
 #root {
   max-width: 1280px;
   margin: auto;
