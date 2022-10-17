@@ -5,17 +5,18 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   const collectData = async () => {
     console.log(email, password);
-    let result = await fetch("http://localhost:5000/auth/signup", {
+    const result = await fetch("http://localhost:3000/auth/signup", {
       method: "post",
       body: JSON.stringify({ email, password }),
       headers: {
         "Content-Type": "application/json",
       },
     });
-    result = await result.json();
-    console.log(result);
+    const response = await result.json();
+    console.log(response);
     if (result) {
       navigate("/login");
     }
