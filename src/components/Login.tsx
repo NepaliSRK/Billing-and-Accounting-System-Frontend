@@ -1,23 +1,29 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+type Logtype = {
+  email: string;
+  password: string;
+};
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   const handleLogin = async () => {
     console.log(email, password);
-    let result = await fetch("http://localhost:5000/auth/login", {
+    const result = await fetch("http://localhost:3000/auth/login", {
       method: "post",
       body: JSON.stringify({ email, password }),
       headers: {
         "Content-Type": "application/json",
       },
     });
-    result = await result.json();
-    console.log(result);
-    if (result) {
-      navigate("/home");
+    const Logtype = await result.json();
+    console.log(Logtype);
+    if (Logtype.email) {
+      navigate("/");
     } else {
       alert("user not found");
     }
@@ -34,7 +40,6 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
         ></input>
-        <br></br>
 
         <input
           className="inputbox"
@@ -43,7 +48,6 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         ></input>
-        <br></br>
         <button onClick={handleLogin} className="inputbox" type="button">
           Login
         </button>
