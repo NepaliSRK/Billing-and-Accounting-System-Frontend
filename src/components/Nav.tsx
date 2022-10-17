@@ -23,6 +23,9 @@ const Nav = () => {
         <li>
           <Link to="/addproduct">Add Product</Link>
         </li>
+        <li>
+          <Link to="/update"></Link>
+        </li>
       </ul>
     </div>
   );
